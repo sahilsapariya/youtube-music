@@ -1,60 +1,65 @@
-import { Text, type TextProps, StyleSheet } from "react-native";
-
+import React from "react";
+import { ColorValue, Text, TextProps, TextStyle } from "react-native";
 import { useThemeColor } from "common/hooks/useThemeColor";
+import { Colors } from "constants/colors";
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: "default" | "title" | "defaultSemiBold" | "subtitle" | "link";
+  lightBorderColor?: string;
+  darkBorderColor?: string;
+  type?: "title" | "default" | "label" | "caption" | null;
+};
+
+const textStyleVariants: Record<string, TextStyle> = {
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  default: {
+    fontSize: 16,
+  },
+  label: {
+    fontSize: 14,
+    fontWeight: "500",
+  },
+  caption: {
+    fontSize: 12,
+    fontStyle: "italic",
+  },
+  custom: {},
 };
 
 export function ThemedText({
   style,
-  lightColor,
-  darkColor,
-  type = "default",
-  ...rest
+  lightColor = Colors.light.text,
+  darkColor = Colors.dark.text,
+  lightBorderColor,
+  darkBorderColor,
+  type,
+  ...otherProps
 }: ThemedTextProps) {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
+  const color: string = useThemeColor(
+    { light: lightColor, dark: darkColor },
+    "text"
+  ) as string;
 
-  return (
-    <Text
-      style={[
-        { color },
-        type === "default" ? styles.default : undefined,
-        type === "title" ? styles.title : undefined,
-        type === "defaultSemiBold" ? styles.defaultSemiBold : undefined,
-        type === "subtitle" ? styles.subtitle : undefined,
-        type === "link" ? styles.link : undefined,
-        style,
-      ]}
-      {...rest}
-    />
-  );
+  const borderColor =
+    lightBorderColor || darkBorderColor
+      ? useThemeColor(
+          { light: lightBorderColor, dark: darkBorderColor },
+          "border"
+        )
+      : undefined;
+
+  const textStyle: TextStyle[] = [
+    { color },
+    textStyleVariants[type || "custom"],
+    borderColor
+      ? { borderColor: borderColor as ColorValue, borderWidth: 1 }
+      : {},
+    style as TextStyle,
+  ];
+
+  return <Text style={textStyle} {...otherProps} />;
 }
-
-const styles = StyleSheet.create({
-  default: {
-    fontSize: 16,
-    lineHeight: 24,
-  },
-  defaultSemiBold: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: "600",
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: "bold",
-    lineHeight: 32,
-  },
-  subtitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  link: {
-    lineHeight: 30,
-    fontSize: 16,
-    color: "#0a7ea4",
-  },
-});

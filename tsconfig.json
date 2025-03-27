@@ -19,5 +19,6 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
-  "extends": "expo/tsconfig.base"
+  "extends": "expo/tsconfig.base",
+  "include": ["**/*.ts", "**/*.tsx", "nativewind-env.d.ts", "babel.config.js", "metro.config.js"]
 }
