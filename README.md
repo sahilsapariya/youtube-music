@@ -93,11 +93,3 @@ Contributions, issues, and feature requests are welcome! Feel free to submit a p
 
 ## 📧 Contact
 For inquiries, feel free to reach out via [sahilsapariya03@gmail.com](mailto:sahilsapariya03@gmail.com).
-
-
-
-✅ **Why this works:**
-- Well-structured with clear instructions.
-- Highlights project features and technologies.
-- Includes testing and contribution guidelines.
-
