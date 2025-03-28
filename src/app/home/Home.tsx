@@ -1,25 +1,24 @@
-import { Button } from "react-native";
 import React, { useContext } from "react";
-import { ThemeContext } from "common/context/ThemeContext";
-import { ThemedText } from "common/components/ThemedText";
 import { ThemedView } from "common/components/ThemedView";
 import ScreenWrapper from "common/wrappers/ScreenWrapper";
-import { Colors } from "constants/colors";
+import Logo from "assets/icons/logo.svg";
+import Header from "./components/Header";
+import { ThemeContext } from "common/context/ThemeContext";
+import { Button } from "react-native";
 
 const Home = () => {
-  const { toggleTheme } = useContext(ThemeContext);
-
+  const { toggleTheme, iconColor } = useContext(ThemeContext);
   return (
     <ScreenWrapper>
-      <ThemedView>
-        <ThemedText
-          lightBorderColor={Colors.light.border}
-          darkBorderColor={Colors.dark.border}
-        >
-          Home
-        </ThemedText>
-        <Button title="Toggle Theme" onPress={toggleTheme} />
-      </ThemedView>
+      <>
+        <ThemedView className="p-5 flex-row justify-between items-center w-full">
+          <ThemedView>
+            <Logo width={100} height={24} color={iconColor} />
+          </ThemedView>
+          <Header />
+        </ThemedView>
+        <Button onPress={toggleTheme} title="toggle theme" />
+      </>
     </ScreenWrapper>
   );
 };
