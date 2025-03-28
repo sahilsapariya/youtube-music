@@ -18,6 +18,7 @@ function AppContent() {
       <StatusBar
         barStyle={theme === "dark" ? "light-content" : "dark-content"}
         backgroundColor={theme === "dark" ? "#000000" : "#ffffff"}
+        translucent={false}
       />
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
