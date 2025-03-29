@@ -11,3 +11,83 @@ export const GENRES = [
   "Focus",
   "Sleep",
 ];
+
+export const SONGS = [
+  {
+    id: 1,
+    title: "Song 1 this is long title",
+    artist: "Artist 1",
+    genre: "Podcasts",
+    image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+  },
+  {
+    id: 2,
+    title: "Song 2",
+    artist: "Artist 2",
+    genre: "Romance",
+    image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+  },
+  {
+    id: 3,
+    title: "Song 3",
+    artist: "Artist 3",
+    genre: "Relax",
+    image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+  },
+  {
+    id: 4,
+    title: "Song 4",
+    artist: "Artist 4",
+    genre: "Work Out",
+    image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+  },
+  {
+    id: 5,
+    title: "Song 5",
+    artist: "Artist 5",
+    genre: "Feel Good",
+    image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+  },
+  {
+    id: 6,
+    title: "Song 6",
+    artist: "Artist 6",
+    genre: "Energise",
+    image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+  },
+  {
+    id: 7,
+    title: "Song 7",
+    artist: "Artist 7",
+    genre: "Sad",
+    image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+  },
+  {
+    id: 8,
+    title: "Song 8",
+    artist: "Artist 8",
+    genre: "Commute",
+    image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+  },
+  {
+    id: 9,
+    title: "Song 9",
+    artist: "Artist 9",
+    genre: "Party",
+    image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+  },
+  {
+    id: 10,
+    title: "Song 10",
+    artist: "Artist 10",
+    genre: "Focus",
+    image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+  },
+  {
+    id: 11,
+    title: "Song 11",
+    artist: "Artist 11",
+    genre: "Sleep",
+    image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+  },
+];

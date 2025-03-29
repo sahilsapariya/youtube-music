@@ -13,7 +13,7 @@ export type ThemedTextProps = TextProps & {
 
 const textStyleVariants: Record<string, TextStyle> = {
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "bold",
   },
   default: {
