@@ -48,7 +48,12 @@ const SpeedDial: React.FC<SpeedDialProps> = ({ songs }) => {
                 start={{ x: 0, y: 1 }}
                 end={{ x: 0, y: 0 }}
               >
-                <ThemedText style={styles.itemTitle} type={"label"} numberOfLines={1} ellipsizeMode="tail">
+                <ThemedText
+                  style={styles.itemTitle}
+                  type={"label"}
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
+                >
                   {item.title}
                 </ThemedText>
               </LinearGradient>
@@ -64,7 +69,7 @@ const SpeedDial: React.FC<SpeedDialProps> = ({ songs }) => {
       <ThemedText type={"title"} className="px-5 py-4 mx-2">
         Speed Dial
       </ThemedText>
-      <Swiper data={pages} renderItem={renderPage} />
+      <Swiper data={pages} renderItem={renderPage} showPagination={true} />
     </View>
   );
 };
@@ -84,7 +89,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: "100%",
-    height: 100,
+    height: screenWidth / 3 - 20,
     borderRadius: 8,
     zIndex: 5,
   },

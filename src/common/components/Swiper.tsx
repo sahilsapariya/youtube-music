@@ -17,9 +17,16 @@ interface SwiperProps<T> {
   renderItem: (item: T, index: number) => React.ReactNode;
   itemWidth?: number;
   containerStyle?: ViewStyle;
+  showPagination?: boolean;
 }
 
-const Swiper = <T,>({ data, renderItem, itemWidth = screenWidth, containerStyle = {} }: SwiperProps<T>) => {
+const Swiper = <T,>({
+  data,
+  renderItem,
+  itemWidth = screenWidth,
+  containerStyle = {},
+  showPagination = false,
+}: SwiperProps<T>) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
@@ -32,10 +39,13 @@ const Swiper = <T,>({ data, renderItem, itemWidth = screenWidth, containerStyle 
     <ThemedView style={containerStyle}>
       <ScrollView
         horizontal
-        pagingEnabled
+        pagingEnabled={false} // Disable pagingEnabled since we're handling snapping manually
         showsHorizontalScrollIndicator={false}
         onScroll={handleScroll}
         scrollEventThrottle={16}
+        snapToInterval={itemWidth} // Ensures each item snaps correctly
+        snapToAlignment="start" // Ensures the next item starts from its beginning
+        decelerationRate="fast" // Makes scrolling feel natural
         contentContainerStyle={{ paddingHorizontal: 10 }}
       >
         {data.map((item, index) => (
@@ -44,7 +54,7 @@ const Swiper = <T,>({ data, renderItem, itemWidth = screenWidth, containerStyle 
           </View>
         ))}
       </ScrollView>
-      <Pagination data={data} activeIndex={activeIndex} />
+      {showPagination && <Pagination data={data} activeIndex={activeIndex} />}
     </ThemedView>
   );
 };

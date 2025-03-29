@@ -13,9 +13,9 @@ const NumberConverter = (number: number) => {
   if (number < 1000) {
     return number;
   } else if (number >= 1000 && number < 1000000) {
-    return (number / 1000).toFixed(1) + "K plays";
+    return (number / 1000).toFixed(0) + "K plays";
   } else if (number >= 1000000 && number < 1000000000) {
-    return (number / 1000000).toFixed(1) + "M plays";
+    return (number / 1000000).toFixed(0) + "M plays";
   } else {
     return (number / 1000000000).toFixed(1) + "B plays";
   }
