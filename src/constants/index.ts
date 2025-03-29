@@ -18,6 +18,7 @@ export const SONGS = [
     title: "Song 1 this is long title",
     artist: "Artist 1",
     genre: "Podcasts",
+    plays: 1300000000,
     image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
   },
   {
@@ -25,6 +26,7 @@ export const SONGS = [
     title: "Song 2",
     artist: "Artist 2",
     genre: "Romance",
+    plays: 4000000,
     image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
   },
   {
@@ -32,6 +34,7 @@ export const SONGS = [
     title: "Song 3",
     artist: "Artist 3",
     genre: "Relax",
+    plays: 1000000,
     image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
   },
   {
@@ -39,6 +42,7 @@ export const SONGS = [
     title: "Song 4",
     artist: "Artist 4",
     genre: "Work Out",
+    plays: 1000000,
     image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
   },
   {
@@ -46,6 +50,8 @@ export const SONGS = [
     title: "Song 5",
     artist: "Artist 5",
     genre: "Feel Good",
+    plays: 1000000,
+
     image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
   },
   {
@@ -54,6 +60,7 @@ export const SONGS = [
     artist: "Artist 6",
     genre: "Energise",
     image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+    plays: 50000000,
   },
   {
     id: 7,
@@ -61,6 +68,7 @@ export const SONGS = [
     artist: "Artist 7",
     genre: "Sad",
     image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+    plays: 1000000,
   },
   {
     id: 8,
@@ -68,6 +76,7 @@ export const SONGS = [
     artist: "Artist 8",
     genre: "Commute",
     image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+    plays: 1000000,
   },
   {
     id: 9,
@@ -75,6 +84,7 @@ export const SONGS = [
     artist: "Artist 9",
     genre: "Party",
     image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+    plays: 1000000,
   },
   {
     id: 10,
@@ -82,6 +92,7 @@ export const SONGS = [
     artist: "Artist 10",
     genre: "Focus",
     image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+    plays: 6000000,
   },
   {
     id: 11,
@@ -89,5 +100,6 @@ export const SONGS = [
     artist: "Artist 11",
     genre: "Sleep",
     image: require("../assets/images/songs/tu-hai-kahan.jpeg"),
+    plays: 1000000,
   },
 ];
