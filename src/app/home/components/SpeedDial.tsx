@@ -65,8 +65,8 @@ const SpeedDial: React.FC<SpeedDialProps> = ({ songs }) => {
   );
 
   return (
-    <View className="my-3">
-      <ThemedText type={"title"} className="px-5 py-4 mx-2">
+    <View style={styles.container}>
+      <ThemedText type={"title"} style={styles.title}>
         Speed Dial
       </ThemedText>
       <Swiper data={pages} renderItem={renderPage} showPagination={true} />
@@ -77,6 +77,14 @@ const SpeedDial: React.FC<SpeedDialProps> = ({ songs }) => {
 export default SpeedDial;
 
 const styles = StyleSheet.create({
+  container: {
+    marginVertical: 12,
+  },
+  title: {
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    marginHorizontal: 8,
+  },
   page: {
     width: "100%",
     paddingHorizontal: 10,
