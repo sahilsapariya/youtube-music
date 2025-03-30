@@ -10,6 +10,7 @@ import ExploreIconOutline from "assets/icons/explore-outline.svg";
 import ExploreIconFilled from "assets/icons/explore.svg";
 import Library from "app/library/Library";
 import Explore from "app/explore/Explore";
+import { SCREENS } from "constants/Screens";
 
 const Tab = createBottomTabNavigator();
 
@@ -23,19 +24,19 @@ const TabNavigator = () => {
           backgroundColor: theme === "dark" ? "#1D1D1D" : "#F1F1F1",
         },
         tabBarIcon: ({ focused, size }) => {
-          if (route.name === "Home")
+          if (route.name === SCREENS.HOME)
             return focused ? (
               <HomeIconFilled width={size} color={iconColor} />
             ) : (
               <HomeIconOutline width={size} color={iconColor} />
             );
-          else if (route.name === "Library")
+          else if (route.name === SCREENS.LIBRARY)
             return focused ? (
               <LibraryIconFilled width={size} color={iconColor} />
             ) : (
               <LibraryIconOutline width={size} color={iconColor} />
             );
-          else if (route.name === "Explore")
+          else if (route.name === SCREENS.EXPLORE)
             return focused ? (
               <ExploreIconFilled width={size} color={iconColor} />
             ) : (
@@ -48,9 +49,9 @@ const TabNavigator = () => {
         headerShown: false,
       })}
     >
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Library" component={Library} />
-      <Tab.Screen name="Explore" component={Explore} />
+      <Tab.Screen name={SCREENS.HOME} component={Home} />
+      <Tab.Screen name={SCREENS.LIBRARY} component={Library} />
+      <Tab.Screen name={SCREENS.EXPLORE} component={Explore} />
     </Tab.Navigator>
   );
 };

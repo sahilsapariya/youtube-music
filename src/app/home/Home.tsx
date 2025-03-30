@@ -8,7 +8,7 @@ import { SONGS } from "constants/index";
 import SpeedDial from "./components/SpeedDial";
 import QuickPlays from "./components/QuickPlays";
 
-const Home = () => {
+const Home: React.FC = () => {
   const { toggleTheme } = useContext(ThemeContext);
   return (
     <ScreenWrapper>
@@ -18,7 +18,7 @@ const Home = () => {
           <TagScroller />
           <SpeedDial songs={SONGS} />
           <QuickPlays data={SONGS} />
-          <Button onPress={toggleTheme} title="toggle theme" />
+          {/* <Button onPress={toggleTheme} title="toggle theme" /> */}
         </ScrollView>
       </>
     </ScreenWrapper>
