@@ -1,6 +1,6 @@
 /**
  * @param number - number to be converted
- * @returns number in K, M, B format
+ * @returns string in K, M, B format
  * @description Converts the number to K, M, B format
  * @example
  * NumberConverter(1000) => 1K plays
@@ -10,14 +10,27 @@
  */
 
 const NumberConverter = (number: number) => {
+  const formatNumber = (value: number) => {
+    if (value >= 100) {
+      return value.toFixed(0);
+    }
+    const roundedValue = value.toFixed(1);
+    return roundedValue.endsWith(".0")
+      ? roundedValue.slice(0, -2)
+      : roundedValue;
+  };
+
   if (number < 1000) {
-    return number;
+    return number.toString() + " plays";
   } else if (number >= 1000 && number < 1000000) {
-    return (number / 1000).toFixed(0) + "K plays";
+    const formatted = formatNumber(number / 1000);
+    return formatted + "K plays";
   } else if (number >= 1000000 && number < 1000000000) {
-    return (number / 1000000).toFixed(0) + "M plays";
+    const formatted = formatNumber(number / 1000000);
+    return formatted + "M plays";
   } else {
-    return (number / 1000000000).toFixed(1) + "B plays";
+    const formatted = formatNumber(number / 1000000000);
+    return formatted + "B plays";
   }
 };
 
