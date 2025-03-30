@@ -8,16 +8,23 @@ export type ThemedTextProps = TextProps & {
   darkColor?: string;
   lightBorderColor?: string;
   darkBorderColor?: string;
-  type?: "title" | "default" | "label" | "caption" | null;
+  type?:
+    | "title"
+    | "highlight"
+    | "label"
+    | "caption"
+    | "roundedOutlineButton"
+    | null;
 };
 
 const textStyleVariants: Record<string, TextStyle> = {
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "bold",
   },
-  default: {
+  highlight: {
     fontSize: 16,
+    fontWeight: "600",
   },
   label: {
     fontSize: 14,
@@ -26,6 +33,12 @@ const textStyleVariants: Record<string, TextStyle> = {
   caption: {
     fontSize: 12,
     fontStyle: "italic",
+  },
+  roundedOutlineButton: {
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+    borderRadius: 20,
+    fontSize: 12,
   },
   custom: {},
 };

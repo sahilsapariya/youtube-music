@@ -1,14 +1,8 @@
 import React, { useContext } from "react";
 import { StatusBar } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { RootStackParamList } from "common/interfaces";
-import Home from "app/home/Home";
-import "./global.css";
-
-const Stack = createStackNavigator<RootStackParamList>();
-
 import { ThemeContext, ThemeProvider } from "common/context/ThemeContext";
+import TabNavigator from "common/navigation/TabNavigator";
 
 function AppContent() {
   const { theme } = useContext(ThemeContext);
@@ -17,13 +11,10 @@ function AppContent() {
     <>
       <StatusBar
         barStyle={theme === "dark" ? "light-content" : "dark-content"}
-        backgroundColor={theme === "dark" ? "#000000" : "#ffffff"}
-        translucent={false}
+        backgroundColor={theme === "dark" ? "#000" : "#fff"}
       />
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Home" component={Home} />
-        </Stack.Navigator>
+        <TabNavigator />
       </NavigationContainer>
     </>
   );

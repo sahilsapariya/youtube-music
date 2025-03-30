@@ -1,29 +1,20 @@
 import React, { useContext } from "react";
 import { ThemedView } from "common/components/ThemedView";
 import { ThemedText } from "common/components/ThemedText";
-import { ScrollView, StyleSheet } from "react-native";
 import { ThemeContext } from "common/context/ThemeContext";
 import { GENRES } from "constants/index";
+import HorizontalScroller from "common/components/HorizontalScroller";
+import { StyleSheet } from "react-native";
 
 const TagScroller = () => {
   return (
-    <ScrollView
-      horizontal
-      className="flex-grow-0"
-      contentContainerStyle={TagScrollerStyles.scrollViewContainer}
-    >
-      {GENRES.map((genre, index) => {
-        return <Tag tag={genre} key={index} />;
-      })}
-    </ScrollView>
+    <HorizontalScroller>
+      {GENRES.map((genre, index) => (
+        <Tag tag={genre} key={index} />
+      ))}
+    </HorizontalScroller>
   );
 };
-const TagScrollerStyles = StyleSheet.create({
-  scrollViewContainer: {
-    paddingHorizontal: 20,
-    gap: 8,
-  },
-});
 
 const Tag = ({ tag }: { tag: string }) => {
   const { theme } = useContext(ThemeContext);
@@ -35,9 +26,7 @@ const Tag = ({ tag }: { tag: string }) => {
         theme === "light" ? TagStyles.lightMode : TagStyles.darkMode,
       ]}
     >
-      <ThemedText type={"label"} onPress={() => {}}>
-        {tag}
-      </ThemedText>
+      <ThemedText type={"label"}>{tag}</ThemedText>
     </ThemedView>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Image } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { ThemedView } from "common/components/ThemedView";
 import { ThemeContext } from "common/context/ThemeContext";
 import Search from "assets/icons/search.svg";
@@ -10,23 +10,40 @@ const Header = () => {
   const { iconColor } = useContext(ThemeContext);
 
   return (
-    <ThemedView className="p-5 flex-row justify-between items-center w-full">
-      <ThemedView>
+    <ThemedView style={styles.container}>
+      <View>
         <Logo height={24} color={iconColor} />
-      </ThemedView>
-      <ThemedView className="flex-row gap-5 items-center">
+      </View>
+      <View style={styles.iconContainer}>
         <Notifications width={28} height={28} fill={iconColor} />
         <Search width={28} height={28} fill={iconColor} />
         <Image
           source={require("assets/images/user.jpg")}
-          width={24}
-          height={24}
-          alt="user profile"
-          className="rounded-full w-7 h-7"
+          style={styles.profileImage}
         />
-      </ThemedView>
+      </View>
     </ThemedView>
   );
 };
 
 export default Header;
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+  },
+  iconContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 20,
+  },
+  profileImage: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+  },
+});
