@@ -7,18 +7,18 @@ import TabNavigator from "./TabNavigator";
 import Account from "app/account/Account";
 import { ThemeContext } from "common/context/ThemeContext";
 import { RootStackParamList } from "common/interfaces";
+import CloseIcon from "assets/icons/close.svg";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
 const StackNavigator: React.FC = () => {
-  const { theme } = useContext(ThemeContext);
+  const { theme, iconColor } = useContext(ThemeContext);
 
   return (
     <Stack.Navigator
       screenOptions={{
         headerStyle: { backgroundColor: theme === "dark" ? "#000" : "#fff" },
         headerTintColor: theme === "dark" ? "#fff" : "#000",
-        headerShown: false,
       }}
     >
       <Stack.Screen
@@ -30,6 +30,9 @@ const StackNavigator: React.FC = () => {
         name="Account"
         component={Account}
         options={{
+          headerStyle: { backgroundColor: theme === "dark" ? "#000" : "#fff" },
+          headerShadowVisible: false,
+          headerBackImage: () => <CloseIcon fill={iconColor} width={32} height={32} />,
           presentation: "modal",
           cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
           transitionSpec: {
