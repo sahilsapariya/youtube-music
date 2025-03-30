@@ -6,7 +6,7 @@ import { GENRES } from "constants/index";
 import HorizontalScroller from "common/components/HorizontalScroller";
 import { StyleSheet } from "react-native";
 
-const TagScroller = () => {
+const TagScroller: React.FC = () => {
   return (
     <HorizontalScroller>
       {GENRES.map((genre, index) => (
@@ -16,7 +16,9 @@ const TagScroller = () => {
   );
 };
 
-const Tag = ({ tag }: { tag: string }) => {
+type TagProps = { tag: string };
+
+const Tag: React.FC<TagProps> = ({ tag }) => {
   const { theme } = useContext(ThemeContext);
 
   return (

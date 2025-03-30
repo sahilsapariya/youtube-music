@@ -8,7 +8,7 @@ import { SONGS } from "constants/index";
 import SpeedDial from "./components/SpeedDial";
 import QuickPlays from "./components/QuickPlays";
 
-const Home = () => {
+const Home: React.FC = () => {
   const { toggleTheme } = useContext(ThemeContext);
   return (
     <ScreenWrapper>

@@ -6,7 +6,19 @@ import NumberConverter from "utils/NumberConverter";
 import MoreVertical from "assets/icons/more-vert.svg";
 import { ThemeContext } from "common/context/ThemeContext";
 
-const ListItem = ({ song }) => {
+type Song = {
+  id: number;
+  title: string;
+  image: any;
+  plays: number;
+  artist: string;
+};
+
+type ListItemProps = {
+  song: Song;
+};
+
+const ListItem: React.FC<ListItemProps> = ({ song }) => {
   const { iconColor } = useContext(ThemeContext);
 
   return (

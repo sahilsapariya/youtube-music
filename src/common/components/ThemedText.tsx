@@ -43,7 +43,7 @@ const textStyleVariants: Record<string, TextStyle> = {
   custom: {},
 };
 
-export function ThemedText({
+export const ThemedText: React.FC<ThemedTextProps> = ({
   style,
   lightColor = Colors.light.text,
   darkColor = Colors.dark.text,
@@ -51,7 +51,7 @@ export function ThemedText({
   darkBorderColor,
   type,
   ...otherProps
-}: ThemedTextProps) {
+}) => {
   const color: string = useThemeColor(
     { light: lightColor, dark: darkColor },
     "text"
@@ -75,4 +75,4 @@ export function ThemedText({
   ];
 
   return <Text style={textStyle} {...otherProps} />;
-}
+};

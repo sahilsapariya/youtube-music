@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const Library = () => {
+const Library: React.FC = () => {
   return (
     <View>
       <Text>Library</Text>

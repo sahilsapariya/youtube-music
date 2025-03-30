@@ -9,14 +9,14 @@ export type ThemedViewProps = ViewProps & {
   darkBorderColor?: string;
 };
 
-export function ThemedView({
+export const ThemedView: React.FC<ThemedViewProps> = ({
   style,
   lightColor = Colors.light.background,
   darkColor = Colors.dark.background,
   lightBorderColor,
   darkBorderColor,
   ...otherProps
-}: ThemedViewProps) {
+}) => {
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
     "background"
@@ -42,4 +42,4 @@ export function ThemedView({
       {...otherProps}
     />
   );
-}
+};

@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { ThemeContext, ThemeProvider } from "common/context/ThemeContext";
-import TabNavigator from "common/navigation/TabNavigator";
+import StackNavigator from "navigation/StackNavigator";
 
-function AppContent() {
+const AppContent: React.FC = () => {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -14,16 +14,18 @@ function AppContent() {
         backgroundColor={theme === "dark" ? "#000" : "#fff"}
       />
       <NavigationContainer>
-        <TabNavigator />
+        <StackNavigator />
       </NavigationContainer>
     </>
   );
-}
+};
 
-export default function App() {
+const App: React.FC = () => {
   return (
     <ThemeProvider>
       <AppContent />
     </ThemeProvider>
   );
-}
+};
+
+export default App;
