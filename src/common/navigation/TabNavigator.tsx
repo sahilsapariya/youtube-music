@@ -9,6 +9,7 @@ import LibraryIconFilled from "assets/icons/library.svg";
 import ExploreIconOutline from "assets/icons/explore-outline.svg";
 import ExploreIconFilled from "assets/icons/explore.svg";
 import Library from "app/library/Library";
+import Explore from "app/explore/Explore";
 
 const Tab = createBottomTabNavigator();
 
@@ -49,7 +50,7 @@ const TabNavigator = () => {
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Library" component={Library} />
-      <Tab.Screen name="Explore" component={Home} />
+      <Tab.Screen name="Explore" component={Explore} />
     </Tab.Navigator>
   );
 };
