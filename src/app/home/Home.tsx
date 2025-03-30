@@ -18,7 +18,7 @@ const Home: React.FC = () => {
           <TagScroller />
           <SpeedDial songs={SONGS} />
           <QuickPlays data={SONGS} />
-          {/* <Button onPress={toggleTheme} title="toggle theme" /> */}
+          <Button onPress={toggleTheme} title="toggle theme" />
         </ScrollView>
       </>
     </ScreenWrapper>
