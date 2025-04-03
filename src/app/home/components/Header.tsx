@@ -17,6 +17,9 @@ const Header: React.FC = () => {
   const goToAccount = () => {
     navigation.navigate("Account");
   };
+  const goToSearch = () => {
+    navigation.navigate("Search");
+  };
 
   return (
     <ThemedView style={styles.container}>
@@ -25,7 +28,9 @@ const Header: React.FC = () => {
       </View>
       <View style={styles.iconContainer}>
         <Notifications width={28} height={28} fill={iconColor} />
-        <Search width={28} height={28} fill={iconColor} />
+        <Pressable onPress={goToSearch}>
+          <Search width={28} height={28} fill={iconColor} />
+        </Pressable>
         <Pressable onPress={goToAccount}>
           <Image
             source={require("assets/images/user.jpg")}

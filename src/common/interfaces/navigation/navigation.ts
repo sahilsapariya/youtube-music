@@ -7,5 +7,6 @@
 
 export type RootStackParamList = {
   Account: undefined;
+  Search: undefined;
   TabNavigator: undefined;
 };
