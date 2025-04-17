@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import {
   CardStyleInterpolators,
   createStackNavigator,
+  TransitionPresets,
 } from "@react-navigation/stack";
 import TabNavigator from "./TabNavigator";
 import Account from "app/account/Account";
@@ -59,6 +60,8 @@ const StackNavigator: React.FC = () => {
         component={Search}
         options={{
           headerShown: false,
+          ...TransitionPresets.SlideFromRightIOS,
+          gestureDirection: "horizontal",
         }}
       />
     </Stack.Navigator>
