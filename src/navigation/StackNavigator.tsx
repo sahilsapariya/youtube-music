@@ -2,12 +2,14 @@ import React, { useContext } from "react";
 import {
   CardStyleInterpolators,
   createStackNavigator,
+  TransitionPresets,
 } from "@react-navigation/stack";
 import TabNavigator from "./TabNavigator";
 import Account from "app/account/Account";
 import { ThemeContext } from "common/context/ThemeContext";
 import { RootStackParamList } from "common/interfaces";
 import CloseIcon from "assets/icons/close.svg";
+import Search from "app/search/Search";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -32,7 +34,9 @@ const StackNavigator: React.FC = () => {
         options={{
           headerStyle: { backgroundColor: theme === "dark" ? "#000" : "#fff" },
           headerShadowVisible: false,
-          headerBackImage: () => <CloseIcon fill={iconColor} width={32} height={32} />,
+          headerBackImage: () => (
+            <CloseIcon fill={iconColor} width={32} height={32} />
+          ),
           presentation: "modal",
           cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
           transitionSpec: {
@@ -45,10 +49,19 @@ const StackNavigator: React.FC = () => {
             close: {
               animation: "timing",
               config: {
-                duration: 0,
+                duration: 200,
               },
             },
           },
+        }}
+      />
+      <Stack.Screen
+        name="Search"
+        component={Search}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.SlideFromRightIOS,
+          gestureDirection: "horizontal",
         }}
       />
     </Stack.Navigator>
